@@ -85,8 +85,18 @@ This repository contains Ansible playbooks and roles for automating the deployme
    - Create `deploy_application.yml` to deploy the sample application.
 
 4. **Create Ansible Roles:**
-   - Create a role for setting up the environment (`roles/setup_environment`).
-   - Create a role for deploying the application (`roles/deploy_application`).
+   - Create a role for setting up the environment (`environment_setup`).
+     ```bash
+      ansible-galaxy init environment_setup
+
+     ```
+
+   - Create a role for deploying the application (`application_deployment`).
+      ```bash
+      ansible-galaxy init application_deployment
+
+
+     ```
 
 5. **Test Ansible Playbooks:**
    - Run the playbooks:

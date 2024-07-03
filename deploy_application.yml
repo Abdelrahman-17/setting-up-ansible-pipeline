@@ -1,0 +1,10 @@
+- name: Deploy and manage sample application
+  hosts: webservers
+  become: yes
+
+  vars:
+    repo_url: "https://github.com/heroku/python-getting-started.git"
+    app_dir: "/opt/hello-world-app"
+
+  roles:
+    - application-deployment

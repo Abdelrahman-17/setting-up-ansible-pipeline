@@ -1,0 +1,79 @@
+---
+# tasks file for application-deployment
+
+
+    - name: Clone the repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ app_dir }}"
+        update: yes
+        force: yes
+
+    - name: Install application dependencies
+      pip:
+        requirements: "{{ app_dir }}/requirements.txt"
+        executable: pip3
+
+    - name: Create a script to start the application
+      copy:
+        content: |
+          #!/bin/bash
+          echo "Starting app..." > /var/log/start_app.log
+          nohup python3 {{ app_dir }}/hello/apps.py >> /var/log/start_app.log 2>&1 &
+          echo "App started with PID $!" >> /var/log/start_app.log
+        dest: /usr/local/bin/start_app.sh
+        mode: '0755'
+
+    - name: Create a script to stop the application
+      copy:
+        content: |
+          #!/bin/bash
+          echo "Stopping app..." > /var/log/stop_app.log
+          pkill -f apps.py
+          echo "App stopped with code $?" >> /var/log/stop_app.log
+        dest: /usr/local/bin/stop_app.sh
+        mode: '0755'
+
+  #  - name: Start the application
+   #   shell: /usr/local/bin/start_app.sh
+    #  async: 45
+     # poll: 0
+     # register: app_start
+
+    - name: Start the application
+      shell: nohup python3 manage.py runserver 0.0.0.0:5000 &
+      args:
+        chdir: /opt/hello-world-app
+      async: 1
+      poll: 0
+
+
+
+
+
+
+
+
+
+    - name: Wait for the application to start
+      pause:
+        seconds: 30
+
+    - name: Ensure application is started
+      shell: "ps aux | grep apps.py"
+      register: app_process
+      failed_when: app_process.stdout == ""
+
+    - name: Stop the application
+      shell: /usr/local/bin/stop_app.sh
+      when: app_process is defined and app_process.stdout != ""
+
+    - name: Pause before checking application status
+      pause:
+        seconds: 5
+
+    - name: Ensure application is stopped
+      command: "pgrep -f 'python3 {{ app_dir }}/hello/apps.py'"
+      register: app_process
+      ignore_errors: true
+      failed_when: app_process.stdout != "" and app_process.stdout != "0"

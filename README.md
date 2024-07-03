@@ -53,7 +53,7 @@ This repository contains Ansible playbooks and roles for automating the deployme
      ```
      ![WhatsApp Image 2024-07-02 at 10 59 52 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/c686b6a1-a24a-43a9-96a7-432e4adf6ed0)
    - Configure Ansible to Use SSH Keys:
-       By default, Ansible uses SSH to connect to the managed nodes. Ensure Ansible is using your SSH key by checking your ansible.cfg configuration file. If you don't have an ansible.cfg file, create one in your project directory:
+       By default, Ansible uses SSH to connect to the managed nodes. Ensure Ansible is using your SSH key by checking your `ansible.cfg` configuration file. If you don't have an ansible.cfg file, create one in your project directory:
 
       ```ini
       [defaults]
@@ -65,6 +65,12 @@ This repository contains Ansible playbooks and roles for automating the deployme
      ```
 
      ![WhatsApp Image 2024-07-02 at 10 59 51 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/9da6b366-2f45-466f-b817-b81f590fac82)
+   - Test SSH Access with Ansible:
+     Use the ansible command to test connectivity to your target server:
+     ```ini
+      ansible all -m ping -i hosts.ini
+     ```
+     ![WhatsApp Image 2024-07-02 at 10 59 53 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/4ae1c5eb-3b23-4378-af66-0f6341762b2d)
 
 
 2. **Clone Sample Application:**

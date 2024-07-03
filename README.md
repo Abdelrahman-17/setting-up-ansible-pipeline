@@ -90,13 +90,19 @@ This repository contains Ansible playbooks and roles for automating the deployme
       ansible-galaxy init environment_setup
 
      ```
+   - Then move the Tasks from setup_environment.yml and put it inside the Tasks inside the main.yml file.
 
+    
    - Create a role for deploying the application (`application_deployment`).
       ```bash
       ansible-galaxy init application_deployment
 
 
      ```
+      
+   - Then move the Tasks from deploy_application.yml and put it inside the Tasks inside the main.yml file.
+
+
 
 5. **Test Ansible Playbooks:**
    - Run the playbooks:

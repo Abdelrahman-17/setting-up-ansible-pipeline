@@ -119,7 +119,7 @@ This repository contains Ansible playbooks and roles for automating the deployme
 
    - Then you can run the site via port tcp/5000 
 
-     ![WhatsApp Image 2024-07-03 at 10 28 49 PM (1)](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/0fe00b42-2c09-477f-ae7a-4c1ea9a54aee)
+     ![WhatsApp Image 2024-07-03 at 10 28 49 PM (1)](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/750cdf0a-5c4e-428e-abac-196dea63a7b2)
 
 
 

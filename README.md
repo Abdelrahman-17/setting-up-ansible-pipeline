@@ -38,12 +38,22 @@ This repository contains Ansible playbooks and roles for automating the deployme
      sudo apt update
      sudo apt install ansible
      ```
-   - Ensure SSH access to the target server.
+   - Ensure SSH access to the target server:
+     ```ini
+     ssh-keygen -t rsa -b 2048
+     ```
+   - to save your key (default is usually ~/.ssh/id_rsa). Then, copy the public key to your target server:  
+     ```ini
+     ssh-copy-id user@target_server_ip
+     ```
    - Configure the inventory file (`hosts.ini`):
      ```ini
      [webservers]
-     your_target_server_ip ansible_user=your_username ansible_ssh_pass=your_password ansible_become_pass=your_sudo_password
+     your_target_server_ip ansible_user=your_username 
      ```
+     ![WhatsApp Image 2024-07-02 at 10 59 52 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/c686b6a1-a24a-43a9-96a7-432e4adf6ed0)
+   - Configure Ansible to Use SSH Keys:
+     By default, Ansible uses SSH to connect to the managed nodes. Ensure Ansible is using your SSH key by checking your ansible.cfg configuration file. If you don't have an ansible.cfg file, create one in your project directory:
 
 2. **Clone Sample Application:**
    - Clone the repository:

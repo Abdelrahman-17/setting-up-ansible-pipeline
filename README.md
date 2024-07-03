@@ -53,7 +53,19 @@ This repository contains Ansible playbooks and roles for automating the deployme
      ```
      ![WhatsApp Image 2024-07-02 at 10 59 52 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/c686b6a1-a24a-43a9-96a7-432e4adf6ed0)
    - Configure Ansible to Use SSH Keys:
-     By default, Ansible uses SSH to connect to the managed nodes. Ensure Ansible is using your SSH key by checking your ansible.cfg configuration file. If you don't have an ansible.cfg file, create one in your project directory:
+       By default, Ansible uses SSH to connect to the managed nodes. Ensure Ansible is using your SSH key by checking your ansible.cfg configuration file. If you don't have an ansible.cfg file, create one in your project directory:
+
+      ```ini
+      [defaults]
+      inventory = hosts.ini
+
+      [ssh_connection]
+      ssh_args = -o ForwardAgent=yes -o ControlMaster=auto -o ControlPersist=60s
+
+     ```
+
+     ![WhatsApp Image 2024-07-02 at 10 59 51 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/9da6b366-2f45-466f-b817-b81f590fac82)
+
 
 2. **Clone Sample Application:**
    - Clone the repository:

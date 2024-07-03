@@ -107,122 +107,24 @@ This repository contains Ansible playbooks and roles for automating the deployme
 5. **Test Ansible Playbooks:**
    - Run the playbooks:
      ```bash
-     ansible-playbook -i hosts.ini setup_environment.yml
-     ansible-playbook -i hosts.ini deploy_application.yml
+     ansible-playbook -i hosts.ini setup_environment.yml  --ask-become-pass
+     ansible-playbook -i hosts.ini deploy_application.yml  --ask-become-pass
      ```
+
+     ![WhatsApp Image 2024-07-03 at 10 29 15 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/2fb22f56-c582-4dcf-a9e0-c12160c1cd3e)
+
+
+     ![WhatsApp Image 2024-07-03 at 10 29 14 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/be21b6a4-5774-4fc7-a0a4-b591e82103b8)
+
+
+   - Then you can run the site via port tcp/5000 
+
+     ![WhatsApp Image 2024-07-03 at 10 28 49 PM (1)](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/0fe00b42-2c09-477f-ae7a-4c1ea9a54aee)
+
+
+
 
 6. **Document Ansible Playbooks:**
-   - Include documentation in the README.md for each role and playbook.
-
-## Example Playbook
-
-### `setup_environment.yml`
-```yaml
----
-- name: Setup Environment
-  hosts: webservers
-  become: yes
-  roles:
-    - setup_environment
+   - Include documentation in the README.md for each role and playbook
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-. **ملف `setup_environment/README.md`**:
-2. 
-
-   - انتقل إلى مجلد `setup_environment`:
-     ```bash
-     cd setup_environment
-     ```
-   - إنشاء ملف README.md بالمحتوى المذكور أعلاه:
-     ```bash
-     echo "# Setup Environment Role
-
-     This role installs necessary packages for the application environment.
-
-     ## Requirements
-
-     - Ansible 2.9+
-
-     ## Role Variables
-
-     - None
-
-     ## Dependencies
-
-     - None
-
-     ## Example Playbook
-
-     \`\`\`yaml
-     - hosts: webservers
-       become: yes
-       roles:
-         - setup_environment
-     \`\`\`
-
-     ## License
-
-     MIT
-
-     ## Author Information
-
-     Your Name (or your company)" > README.md
-     ```
-
-3. **ملف `deploy_application/README.md`**:
-   - انتقل إلى مجلد `deploy_application`:
-     ```bash
-     cd deploy_application
-     ```
-   - إنشاء ملف README.md بالمحتوى المذكور أعلاه:
-     ```bash
-     echo "# Deploy Application Role
-
-     This role deploys the sample application.
-
-     ## Requirements
-
-     - Ansible 2.9+
-     - Python 3.x
-     - Git
-
-     ## Role Variables
-
-     - app_dir: Directory where the application will be deployed (default: /opt/hello-world-app)
-
-     ## Dependencies
-
-     - None
-
-     ## Example Playbook
-
-     \`\`\`yaml
-     - hosts: webservers
-       become: yes
-       vars:
-         app_dir: /opt/hello-world-app
-       roles:
-         - deploy_application
-     \`\`\`
-
-     ## License
-
-     MIT
-
-     ## Author Information
-
-     Your Name (or your company)" > README.md
-     ``

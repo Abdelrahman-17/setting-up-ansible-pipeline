@@ -133,7 +133,7 @@ This repository contains Ansible playbooks and roles for automating the deployme
 
 ###  Install,Configure and test Ansible playbooks
 
-    ```
+    
      sudo apt update
      sudo apt install ansible
 
@@ -152,7 +152,7 @@ This repository contains Ansible playbooks and roles for automating the deployme
      
 
      
-      ansible all -m ping -i hosts.ini
+     ansible all -m ping -i hosts.ini
        
 
    ![WhatsApp Image 2024-07-02 at 10 59 53 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/4ae1c5eb-3b23-4378-af66-0f6341762b2d)
@@ -162,7 +162,7 @@ This repository contains Ansible playbooks and roles for automating the deployme
      ansible-playbook -i hosts.ini setup_environment.yml  --ask-become-pass
 
      ansible-playbook -i hosts.ini deploy_application.yml  --ask-become-pass
-     ```
+     
 
 
 - Then you can run the site via port tcp/5000 

@@ -137,27 +137,26 @@ This repository contains Ansible playbooks and roles for automating the deployme
      sudo apt update
      sudo apt install ansible
      sudo su
-     ```
-    ```ini
+     
      ssh-keygen -t rsa -b 2048
-     ```
-    ```ini
+     
+    
      ssh-copy-id user@target_server_ip
-     ```
+    
 
-      ```bash
+     
      git clone https://github.com/Abdelrahman-17/setting-up-ansible-pipeline.git
      cd setting-up-ansible-pipeline
-     ```
+     
 
-      ```ini
+     
       ansible all -m ping -i hosts.ini
-       ```
+       
 
    ![WhatsApp Image 2024-07-02 at 10 59 53 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/4ae1c5eb-3b23-4378-af66-0f6341762b2d)
 
 
-       ```bash
+       
      ansible-playbook -i hosts.ini setup_environment.yml  --ask-become-pass
      ansible-playbook -i hosts.ini deploy_application.yml  --ask-become-pass
      ```

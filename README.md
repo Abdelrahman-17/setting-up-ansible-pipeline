@@ -133,11 +133,13 @@ This repository contains Ansible playbooks and roles for automating the deployme
 
 ###  Install,Configure and test Ansible playbooks
 
-    ```bash
+    ```
      sudo apt update
      sudo apt install ansible
+
      sudo su
      
+
      ssh-keygen -t rsa -b 2048
      
     
@@ -158,6 +160,7 @@ This repository contains Ansible playbooks and roles for automating the deployme
 
        
      ansible-playbook -i hosts.ini setup_environment.yml  --ask-become-pass
+
      ansible-playbook -i hosts.ini deploy_application.yml  --ask-become-pass
      ```
 

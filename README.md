@@ -37,6 +37,7 @@ This repository contains Ansible playbooks and roles for automating the deployme
      ```bash
      sudo apt update
      sudo apt install ansible
+     sudo su
      ```
    - Ensure SSH access to the target server:
      ```ini

@@ -123,9 +123,59 @@ This repository contains Ansible playbooks and roles for automating the deployme
      ![WhatsApp Image 2024-07-03 at 10 28 49 PM (1)](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/750cdf0a-5c4e-428e-abac-196dea63a7b2)
 
 
-
-
 6. **Document Ansible Playbooks:**
    - Include documentation in the README.md for each role and playbook
+
+
+
+
+## to run direct
+
+###  Install,Configure and test Ansible playbooks
+
+    ```bash
+     sudo apt update
+     sudo apt install ansible
+     sudo su
+     ```
+    ```ini
+     ssh-keygen -t rsa -b 2048
+     ```
+    ```ini
+     ssh-copy-id user@target_server_ip
+     ```
+
+      ```bash
+     git clone https://github.com/Abdelrahman-17/setting-up-ansible-pipeline.git
+     cd setting-up-ansible-pipeline
+     ```
+
+      ```ini
+      ansible all -m ping -i hosts.ini
+       ```
+
+   ![WhatsApp Image 2024-07-02 at 10 59 53 PM](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/4ae1c5eb-3b23-4378-af66-0f6341762b2d)
+
+
+       ```bash
+     ansible-playbook -i hosts.ini setup_environment.yml  --ask-become-pass
+     ansible-playbook -i hosts.ini deploy_application.yml  --ask-become-pass
+     ```
+
+
+- Then you can run the site via port tcp/5000 
+
+     ![WhatsApp Image 2024-07-03 at 10 28 49 PM (1)](https://github.com/Abdelrahman-17/setting-up-ansible-pipeline/assets/83679041/750cdf0a-5c4e-428e-abac-196dea63a7b2)
+
+
+
+
+
+
+
+
+
+   
+   
 
 
